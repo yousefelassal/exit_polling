@@ -1,4 +1,10 @@
 defmodule Poller.Poll do
+  @moduledoc """
+  Documentation for `Poller.Poll`.
+
+  A `Poll` represents a collection of questions and votes for a specific district. It has a `district_id`, a list of `questions`, and a map of `votes` where the keys are choice IDs and the values are the number of votes for that choice.
+  """
+
   alias __MODULE__
 
   defstruct(
@@ -7,6 +13,10 @@ defmodule Poller.Poll do
     votes: %{}
   )
 
+  @doc """
+  Create a new poll
+  """
+  @spec new(number) :: Poll.t()
   def new(district_id) do
     %Poll{district_id: district_id}
   end
