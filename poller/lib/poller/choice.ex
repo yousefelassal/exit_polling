@@ -23,7 +23,6 @@ defmodule Poller.Choice do
       iex> Poller.Choice.new(1, "Choice 1", 0)
       %Poller.Choice{id: 1, description: "Choice 1", party: 0}
   """
-  @spec new(number, String.t(), String.t()) :: Choice.t()
   def new(id, description, party) do
     %Choice{id: id, description: description, party: party}
   end

@@ -16,7 +16,6 @@ defmodule Poller.Poll do
   @doc """
   Create a new poll
   """
-  @spec new(number) :: Poll.t()
   def new(district_id) do
     %Poll{district_id: district_id}
   end
@@ -33,7 +32,7 @@ defmodule Poller.Poll do
 
   defp init_votes(votes, question) do
     question.choices
-    |> Enum.map(choices, fn choice -> {choice.id, 0} end)
+    |> Enum.map(fn choice -> {choice.id, 0} end)
     |> Enum.into(votes)
   end
 

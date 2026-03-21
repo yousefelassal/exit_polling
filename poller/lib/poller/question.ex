@@ -23,7 +23,6 @@ defmodule Poller.Question do
       iex> Poller.Question.new(1, "Who will win the election?")
       %Poller.Question{id: 1, description: "Who will win the election?"}
   """
-  @spec new(number, String.t()) :: Question.t()
   def new(id, description) do
     %Question{id: id, description: description}
   end
@@ -40,7 +39,6 @@ defmodule Poller.Question do
       iex> Poller.Question.add_choice(question, choice)
       %Poller.Question{id: 1, description: "Who will win the election?", choices: [%Poller.Choice{id: 1, description: "Candidate A", party: 0}]}
   """
-  @spec add_choice(Question.t(), Poller.Choice.t()) :: Question.t()
   def add_choice(question, choice) do
     choices = [choice | question.choices]
     Map.put(question, :choices, choices)
