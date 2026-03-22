@@ -1,7 +1,11 @@
 defmodule PollerPhxWeb.PageController do
   use PollerPhxWeb, :controller
+  import Inertia.Controller
 
   def home(conn, _params) do
-    render(conn, :home)
+    param = %{name: "John Doe"}
+
+    conn
+    |> render_inertia("Home", param)
   end
 end
