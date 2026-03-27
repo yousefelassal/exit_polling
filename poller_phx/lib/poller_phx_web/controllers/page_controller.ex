@@ -7,5 +7,8 @@ defmodule PollerPhxWeb.PageController do
 
     conn
     |> render_inertia("Home", param)
+
+    # default render function
+    # render(conn, :home)
   end
 end

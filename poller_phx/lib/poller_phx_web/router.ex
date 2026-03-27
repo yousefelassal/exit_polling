@@ -21,6 +21,12 @@ defmodule PollerPhxWeb.Router do
     get "/", PageController, :home
   end
 
+  scope "/districts", PollerPhxWeb do
+    pipe_through :browser
+
+    get "/", DistrictController, :home
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", PollerPhxWeb do
   #   pipe_through :api

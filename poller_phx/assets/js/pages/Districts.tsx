@@ -4,13 +4,13 @@ interface Props {
   name: string;
 }
 
-const Home: FC<Props> = ({ name }) => {
+const Districts: FC<Props> = ({ name }) => {
   return (
     <div className="p-4 w-full flex flex-col items-center min-h-screen">
       <h1>Welcome, {name}!</h1>
-      <p>This is the Home component.</p>
+      <p>This is the Districts component.</p>
     </div>
   );
 };
 
-export default Home;
+export default Districts;
