@@ -9,4 +9,8 @@ defmodule PollerPhxWeb.DistrictController do
     Logger.info("Districts: #{inspect(districts)}")
     render(conn, :home, districts: districts)
   end
+  
+  def new(conn, _params) do
+    render(conn, :new)
+  end
 end
