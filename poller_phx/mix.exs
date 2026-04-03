@@ -64,7 +64,8 @@ defmodule PollerPhx.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
-      {:poller_dal, [path: "../poller_dal"]}
+      {:poller_dal, [path: "../poller_dal"]},
+      {:phoenix_ecto, "~> 4.7"}
     ]
   end
 

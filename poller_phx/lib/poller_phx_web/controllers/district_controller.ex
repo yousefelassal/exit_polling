@@ -3,6 +3,7 @@ defmodule PollerPhxWeb.DistrictController do
   require Logger
   
   alias PollerDal.Districts
+  alias PollerDal.Districts.District
 
   def home(conn, _params) do
     districts = Districts.list_districts()
@@ -11,6 +12,19 @@ defmodule PollerPhxWeb.DistrictController do
   end
   
   def new(conn, _params) do
-    render(conn, :new)
+    changeset = Districts.change_district(%District{})
+    render(conn, :new, form: Phoenix.Component.to_form(changeset, as: :district))
+  end
+
+  def create(conn, %{"district" => district_params}) do
+    case Districts.create_district(district_params) do
+      {:ok, _district} ->
+        conn
+        |> put_flash(:info, "District created successfully.")
+        |> redirect(to: ~p"/districts")
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, :new, form: Phoenix.Component.to_form(changeset, as: :district))
+    end
   end
 end

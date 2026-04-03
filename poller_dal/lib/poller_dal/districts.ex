@@ -21,4 +21,8 @@ defmodule PollerDal.Districts do
   def delete_district(%District{} = district) do
     Repo.delete(district)
   end
+  
+  def change_district(%District{} = district, attrs \\ %{}) do
+    District.changeset(district, attrs)
+  end
 end

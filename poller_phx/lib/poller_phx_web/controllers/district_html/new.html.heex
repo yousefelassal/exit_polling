@@ -4,5 +4,10 @@
     <h2 class="text-lg font-semibold leading-8 tracking-tight text-gray-200">New District</h2>
     <.button navigate={~p"/districts"}>Back</.button>
   </div>
+  
+  <.form id="district-form" for={@form} action={~p"/districts"} class="mt-8 max-w-md space-y-6">
+    <.input field={@form[:name]} type="text" label="Name" />
+    <.button type="submit">Create</.button>
+  </.form>
 </div>
 </Layouts.app>
