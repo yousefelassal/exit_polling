@@ -29,6 +29,7 @@ defmodule PollerPhxWeb.Router do
     post "/", DistrictController, :create
     get "/:id/edit", DistrictController, :edit
     put "/:id", DistrictController, :update
+    delete "/:id", DistrictController, :delete
   end
 
   # Other scopes may use custom stacks.

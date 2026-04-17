@@ -47,4 +47,13 @@ defmodule PollerPhxWeb.DistrictController do
         render(conn, :edit, district: district, form: Phoenix.Component.to_form(changeset, as: :district))
     end
   end
+  
+  def delete(conn, %{"id" => id}) do
+    district = Districts.get_district!(id)
+    {:ok, _district} = Districts.delete_district(district)
+
+    conn
+    |> put_flash(:info, "District deleted successfully.")
+    |> redirect(to: ~p"/districts")
+  end
 end

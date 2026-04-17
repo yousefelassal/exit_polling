@@ -20,6 +20,9 @@
             <td class="flex-1 px-4 py-2 text-sm text-gray-200"><%= district.name %></td>
             <td class="px-4 py-2 text-sm text-gray-100">
               <.link navigate={~p"/districts/#{district}/edit"} class="text-blue-500 hover:underline">Edit</.link>
+            <.form method="delete" action={~p"/districts/#{district}"} class="inline">
+              <.button type="submit" class="text-red-500 hover:underline cursor-pointer">Delete</.button>
+            </.form>
             </td>
           </tr>
         <% end %>
