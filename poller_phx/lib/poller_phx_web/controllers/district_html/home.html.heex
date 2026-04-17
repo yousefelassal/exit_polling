@@ -18,7 +18,9 @@
           <tr class="flex">
             <td class="px-4 py-2 text-sm text-gray-100"><%= district.id %></td>
             <td class="flex-1 px-4 py-2 text-sm text-gray-200"><%= district.name %></td>
-            <td class="px-4 py-2 text-sm text-gray-100">...</td>
+            <td class="px-4 py-2 text-sm text-gray-100">
+              <.link navigate={~p"/districts/#{district}/edit"} class="text-blue-500 hover:underline">Edit</.link>
+            </td>
           </tr>
         <% end %>
       </tbody>

@@ -1,0 +1,13 @@
+<Layouts.app flash={@flash}>
+<div>
+  <div class="flex items-center justify-between gap-x-3">
+    <h2 class="text-lg font-semibold leading-8 tracking-tight text-gray-200">Update District</h2>
+    <.button navigate={~p"/districts"}>Back</.button>
+  </div>
+  
+  <.form id="district-form" for={@form} action={~p"/districts/#{@district}"} method="put" class="mt-8 max-w-md space-y-6">
+    <.input field={@form[:name]} type="text" label="Name" />
+    <.button type="submit">Update</.button>
+  </.form>
+</div>
+</Layouts.app>

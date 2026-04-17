@@ -27,4 +27,24 @@ defmodule PollerPhxWeb.DistrictController do
         render(conn, :new, form: Phoenix.Component.to_form(changeset, as: :district))
     end
   end
+  
+  def edit(conn, %{"id" => id}) do
+    district = Districts.get_district!(id)
+    changeset = Districts.change_district(district)
+    render(conn, :edit, district: district, form: Phoenix.Component.to_form(changeset, as: :district))
+  end
+  
+  def update(conn, %{"id" => id, "district" => district_params}) do
+    district = Districts.get_district!(id)
+
+    case Districts.update_district(district, district_params) do
+      {:ok, _district} ->
+        conn
+        |> put_flash(:info, "District updated successfully.")
+        |> redirect(to: ~p"/districts")
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, :edit, district: district, form: Phoenix.Component.to_form(changeset, as: :district))
+    end
+  end
 end
